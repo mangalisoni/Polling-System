@@ -6,6 +6,15 @@ const { Server } = require("socket.io");
 const app = express();
 const server = http.createServer(app);
 
+const path = require("path");
+
+// Serve static frontend
+app.use(express.static(path.join(__dirname, "../client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
 const io = new Server(server, {
   cors: {
     origin: "*",

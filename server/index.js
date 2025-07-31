@@ -15,7 +15,10 @@ const io = new Server(server, {
 
 let pollHistory = [];
 
-app.use(cors());
+app.use(cors({
+  origin:  "https://polling-system-rk0f.onrender.com"
+  methods: ["GET", "POST"]
+}));
 app.use(express.json());
 
 io.on("connection", (socket) => {
@@ -71,3 +74,4 @@ const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
+

@@ -16,7 +16,7 @@ const io = new Server(server, {
 let pollHistory = [];
 
 app.use(cors({
-  origin:  "https://polling-system-rk0f.onrender.com"
+  origin:  "https://polling-system-1-zhoh.onrender.com/",
   methods: ["GET", "POST"]
 }));
 app.use(express.json());
